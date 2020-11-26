@@ -1,0 +1,124 @@
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: url("https://images.unsplash.com/photo-1514421266214-69b5a8771edc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjI0MX0&auto=format&fit=crop&w=1350&q=80");
+  background-size: cover;
+}
+
+.hamburger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 60px;
+  background: 0 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hamburger > div {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s;
+}
+
+.hamburger > div:before,
+.hamburger > div:after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  background: inherit;
+  height: 2px;
+  width: 100%;
+  z-index: 1;
+}
+.hamburger > div:after {
+  top: -10px;
+}
+
+#menuState:checked + label > .hamburger > div {
+  transform: rotate(135deg);
+}
+#menuState:checked + label > .hamburger > div:before,
+#menuState:checked + label > .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+#menuState:checked:hover + label > .hamburger > div {
+  transform: rotate(225deg);
+}
+
+/* End hamberger */
+
+#menu {
+  background-color: deeppink;
+  position: fixed;
+  left: -300px;
+  top: 0;
+
+  width: 300px;
+  height: 100vh;
+  /* display: none; */
+  transition: left 0.25s ease-in;
+  padding: 60px 10px;
+}
+#menu li a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+
+  font-size: 2rem;
+  padding: 10px;
+  transition: all 0.5 ease;
+}
+
+#menu li a:hover {
+  color: #000;
+}
+/* chon thanh phan tiep theo */
+#menuState:checked ~ ul {
+  left: 0px;
+}
+/* an nut checkbox di */
+#menuState {
+  display: none;
+}
+#mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: #000;
+
+  display: none;
+  opacity: 0.3;
+}
+
+#menuState:checked ~ label {
+  display: block;
+}
+
+p.center {
+  margin: auto;
+}
